@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CmfcdemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+    ON_BN_CLICKED(IDC_BUTTON2, &CmfcdemoDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +154,12 @@ HCURSOR CmfcdemoDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CmfcdemoDlg::OnBnClickedButton2()//1号键
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CString str = NULL;
+    GetDlgItemText(IDC_EDIT1, str);
+    SetDlgItemText(IDC_EDIT1, str + _T("1"));
+}
