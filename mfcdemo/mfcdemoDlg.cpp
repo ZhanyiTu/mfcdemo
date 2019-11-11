@@ -7,6 +7,7 @@
 #include "mfcdemo.h"
 #include "mfcdemoDlg.h"
 #include "afxdialogex.h"
+#include "dialog1.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -31,6 +32,8 @@ public:
 // 实现
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+    
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -43,6 +46,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+   
 END_MESSAGE_MAP()
 
 
@@ -66,6 +70,7 @@ BEGIN_MESSAGE_MAP(CmfcdemoDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
     ON_BN_CLICKED(IDC_BUTTON2, &CmfcdemoDlg::OnBnClickedButton2)
+    ON_BN_CLICKED(IDC_BUTTON11, &CmfcdemoDlg::OnBnClickedButton11)
 END_MESSAGE_MAP()
 
 
@@ -162,4 +167,14 @@ void CmfcdemoDlg::OnBnClickedButton2()//1号键
     CString str = NULL;
     GetDlgItemText(IDC_EDIT1, str);
     SetDlgItemText(IDC_EDIT1, str + _T("1"));
+}
+
+
+
+
+
+void CmfcdemoDlg::OnBnClickedButton11()
+{
+    dialog1().DoModal();
+    // TODO: 在此添加控件通知处理程序代码
 }

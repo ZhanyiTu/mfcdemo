@@ -187,6 +187,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="dialog1.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="mfcdemo.h" />
     <ClInclude Include="mfcdemoDlg.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dialog1.cpp" />
     <ClCompile Include="mfcdemo.cpp" />
     <ClCompile Include="mfcdemoDlg.cpp" />
     <ClCompile Include="pch.cpp">
