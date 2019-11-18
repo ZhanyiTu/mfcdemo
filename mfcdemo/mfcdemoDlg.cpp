@@ -62,7 +62,9 @@ CmfcdemoDlg::CmfcdemoDlg(CWnd* pParent /*=nullptr*/)
 
 void CmfcdemoDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_LIST1, listbox1);
+    DDX_Control(pDX, IDC_COMBO1, comboBox1);
 }
 
 BEGIN_MESSAGE_MAP(CmfcdemoDlg, CDialogEx)
@@ -71,6 +73,7 @@ BEGIN_MESSAGE_MAP(CmfcdemoDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
     ON_BN_CLICKED(IDC_BUTTON2, &CmfcdemoDlg::OnBnClickedButton2)
     ON_BN_CLICKED(IDC_BUTTON11, &CmfcdemoDlg::OnBnClickedButton11)
+    ON_BN_CLICKED(IDC_BUTTON1, &CmfcdemoDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -99,7 +102,10 @@ BOOL CmfcdemoDlg::OnInitDialog()
 			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
 		}
 	}
-
+    listbox1.AddString(_T("最邻近算法"));
+    listbox1.AddString(_T("双线性差值法"));
+    comboBox1.AddString(_T("最邻近算法"));
+    comboBox1.AddString(_T("双线性差值法"));
 	// 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
 	//  执行此操作
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
@@ -167,6 +173,12 @@ void CmfcdemoDlg::OnBnClickedButton2()//1号键
     CString str = NULL;
     GetDlgItemText(IDC_EDIT1, str);
     SetDlgItemText(IDC_EDIT1, str + _T("1"));
+    int nSel;
+    nSel = listbox1.GetCurSel();
+    CString s;
+    listbox1.GetText(nSel, s);
+    MessageBox(s, _T("您选择的是"), MB_OK);
+    s.ReleaseBuffer();
 }
 
 
@@ -177,4 +189,17 @@ void CmfcdemoDlg::OnBnClickedButton11()
 {
     dialog1().DoModal();
     // TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CmfcdemoDlg::OnBnClickedButton1()//2号键
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CString str = NULL;
+    GetDlgItemText(IDC_EDIT1, str);
+    SetDlgItemText(IDC_EDIT1, str + _T("2"));
+    int nSel = comboBox1.GetCurSel();
+    CString s;
+    s.Format(L"%d", nSel);
+    MessageBox(s, _T("标题"), MB_OK);
 }
