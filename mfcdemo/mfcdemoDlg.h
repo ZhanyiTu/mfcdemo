@@ -37,4 +37,5 @@ public:
     CListBox listbox1;
     CComboBox comboBox1;
     afx_msg void OnBnClickedButton1();
+    afx_msg void OnBnClickedButton3();
 };

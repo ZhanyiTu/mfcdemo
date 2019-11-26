@@ -8,7 +8,11 @@
 #include "mfcdemoDlg.h"
 #include "afxdialogex.h"
 #include "dialog1.h"
-
+#include <iostream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+using namespace cv;
+using namespace std;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -74,6 +78,7 @@ BEGIN_MESSAGE_MAP(CmfcdemoDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BUTTON2, &CmfcdemoDlg::OnBnClickedButton2)
     ON_BN_CLICKED(IDC_BUTTON11, &CmfcdemoDlg::OnBnClickedButton11)
     ON_BN_CLICKED(IDC_BUTTON1, &CmfcdemoDlg::OnBnClickedButton1)
+    ON_BN_CLICKED(IDC_BUTTON3, &CmfcdemoDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -202,4 +207,13 @@ void CmfcdemoDlg::OnBnClickedButton1()//2号键
     CString s;
     s.Format(L"%d", nSel);
     MessageBox(s, _T("标题"), MB_OK);
+}
+
+
+void CmfcdemoDlg::OnBnClickedButton3()
+{
+    cv::Mat img = cv::imread("C:\\Users\\admin\\Desktop\\code\\mfcdemo\\mfcdemo\\lena256.bmp");
+    cv::imshow("测试图片", img);
+    cv::waitKey(0);
+    // TODO: 在此添加控件通知处理程序代码
 }
